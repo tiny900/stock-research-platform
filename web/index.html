@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Stock Research Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; }
+        .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 0; }
+        .feature-card { border: none; box-shadow: 0 2px 15px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .tech-badge { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 4px 12px; border-radius: 20px; margin: 3px; font-size: 0.85rem; }
+        .architecture-box { background: #f8f9fa; border-radius: 8px; padding: 20px; font-family: monospace; font-size: 0.8rem; overflow-x: auto; }
+        pre code { color: #333; }
+        footer { background: #1a1a2e; color: #aaa; }
+    </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">AI-Powered Stock Research Platform</h1>
+        <p class="lead mb-4">Multi-agent stock analysis with RAG knowledge retrieval and systematic prompt engineering</p>
+        <div class="mb-4">
+            <span class="tech-badge">CrewAI</span>
+            <span class="tech-badge">RAG</span>
+            <span class="tech-badge">ChromaDB</span>
+            <span class="tech-badge">Prompt Engineering</span>
+            <span class="tech-badge">Streamlit</span>
+            <span class="tech-badge">Python</span>
+        </div>
+        <a href="https://github.com/TianyuZhang-NEU/stock-research-platform" class="btn btn-light btn-lg me-2">View on GitHub</a>
+        <a href="#demo" class="btn btn-outline-light btn-lg">See Demo</a>
+        <a href="#video" class="btn btn-outline-light btn-lg ms-2">Watch Video</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5" id="features">
+    <div class="container">
+        <h2 class="text-center mb-5">Key Features</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <h4>Multi-Agent Orchestration</h4>
+                    <p>4 specialized CrewAI agents (Controller, Data Collector, Analyst, Report Writer) working in a sequential pipeline to produce comprehensive stock research reports.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <h4>RAG Knowledge Retrieval</h4>
+                    <p>ChromaDB-powered vector store with 100+ document chunks from SEC filings, earnings transcripts, financial glossary, and market analysis reports. Semantic search with ticker-based re-ranking.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <h4>Prompt Engineering Framework</h4>
+                    <p>3-version prompt system (Basic, Structured, CoT+RAG) with composable strategies: chain-of-thought reasoning, few-shot examples, RAG context injection, and output schema constraints.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <h4>5 Technical Indicators</h4>
+                    <p>Custom-built technical analysis tool calculating RSI, MACD, SMA, EMA, and Bollinger Bands with signal generation and consensus assessment.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <h4>Interactive Web UI</h4>
+                    <p>Streamlit dashboard with 5 tabs: Analysis Dashboard (Plotly charts), RAG Context viewer, Report generator, Prompt Engineering Lab, and System Metrics.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <h4>Demo Mode</h4>
+                    <p>Full functionality without API keys using synthetic data fallback, pre-computed ChromaDB embeddings, and TF-IDF retrieval backup.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Architecture Section -->
+<section class="py-5 bg-light" id="architecture">
+    <div class="container">
+        <h2 class="text-center mb-5">System Architecture</h2>
+        <div class="architecture-box">
+<pre><code>┌──────────────────────────────────────────────────────┐
+│                  Streamlit Web UI                      │
+│  Dashboard │ RAG Context │ Report │ Prompt Lab │ Metrics│
+└──────────────────────────┬───────────────────────────┘
+                           │
+┌──────────────────────────▼───────────────────────────┐
+│              CrewAI Agent Orchestration                │
+│                                                       │
+│  Controller → Data Collector → Analyst → Report Writer│
+│                                                       │
+│  Tools: StockData │ DataProcessor │ TechIndicators    │
+│         ReportFormatter │ RAG Search                  │
+└──────────────────────────┬───────────────────────────┘
+                           │
+┌──────────────────────────▼───────────────────────────┐
+│              RAG Pipeline (ChromaDB)                   │
+│                                                       │
+│  Knowledge Base → Chunker → Vector Store → Retriever  │
+│  (15 documents)   (500 tok)  (cosine sim)  (top-k)   │
+└──────────────────────────────────────────────────────┘</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- Demo Section -->
+<section class="py-5" id="demo">
+    <div class="container">
+        <h2 class="text-center mb-5">Demo</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Quick Start</h4>
+                <div class="bg-dark text-light p-3 rounded">
+<pre class="mb-0"><code># Clone and install
+git clone https://github.com/TianyuZhang-NEU/stock-research-platform.git
+cd stock-research-platform
+pip install -r requirements.txt
+
+# Run demo (no API keys needed)
+python main.py --demo
+
+# Launch web UI
+streamlit run app.py</code></pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>With LLM Integration</h4>
+                <div class="bg-dark text-light p-3 rounded">
+<pre class="mb-0"><code># Configure API key
+cp .env.example .env
+# Edit .env with your API key
+
+# Full analysis
+python main.py --symbol AAPL
+
+# With specific prompt version
+python main.py --symbol TSLA --prompt v2_structured</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Screenshots Section -->
+<section class="py-5 bg-light" id="screenshots">
+    <div class="container">
+        <h2 class="text-center mb-5">Screenshots</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center p-4" style="background: #f0f2f6; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <p class="text-muted mb-2" style="font-size: 3rem;">📈</p>
+                            <h5>Analysis Dashboard</h5>
+                            <p class="text-muted small">Interactive candlestick chart with technical indicator cards, summary statistics, and overall BULLISH/BEARISH/NEUTRAL assessment</p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small text-center">Tab 1 — Plotly charts + st.metric cards</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center p-4" style="background: #f0f2f6; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <p class="text-muted mb-2" style="font-size: 3rem;">🔍</p>
+                            <h5>RAG Knowledge Context</h5>
+                            <p class="text-muted small">Retrieved SEC filings and earnings transcripts ranked by semantic relevance, with source citations and expandable content</p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small text-center">Tab 2 — ChromaDB semantic search results</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center p-4" style="background: #f0f2f6; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <p class="text-muted mb-2" style="font-size: 3rem;">📄</p>
+                            <h5>Generated Report</h5>
+                            <p class="text-muted small">Professional markdown report with Executive Summary, Company Context, Price Overview, Technical Analysis, Risk Assessment, and detailed Conclusion</p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small text-center">Tab 3 — Downloadable as Markdown or JSON</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center p-4" style="background: #f0f2f6; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <p class="text-muted mb-2" style="font-size: 3rem;">🧪</p>
+                            <h5>Prompt Engineering Lab</h5>
+                            <p class="text-muted small">Side-by-side comparison of v1 (basic), v2 (structured), v3 (CoT+RAG) prompt versions with full backstory inspection</p>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted small text-center">Tab 4 — A/B testing for prompt strategies</div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-muted mt-4"><em>Replace these placeholders with actual screenshots after running <code>streamlit run app.py</code></em></p>
+    </div>
+</section>
+
+<!-- Video Section -->
+<section class="py-5" id="video">
+    <div class="container text-center">
+        <h2 class="mb-4">Video Demonstration</h2>
+        <p class="text-muted mb-4">10-minute walkthrough covering live demo, architecture, prompt engineering lab, and evaluation results</p>
+        <div class="ratio ratio-16x9 mx-auto" style="max-width: 720px; background: #1a1a2e; border-radius: 8px;">
+            <div class="d-flex align-items-center justify-content-center text-white">
+                <div>
+                    <p style="font-size: 4rem;">&#9654;</p>
+                    <p>Video link will be added after recording</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Metrics Section -->
+<section class="py-5 bg-light" id="metrics">
+    <div class="container">
+        <h2 class="text-center mb-5">Performance Metrics</h2>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <h3 class="text-primary">60</h3>
+                <p>Tests Passing</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="text-primary">102</h3>
+                <p>KB Chunks Indexed</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="text-primary">0.56</h3>
+                <p>Avg RAG Relevance</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="text-primary">&lt;1s</h3>
+                <p>Pipeline Latency</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 text-center">
+    <div class="container">
+        <p class="mb-1">AI-Powered Stock Research Platform</p>
+        <p class="mb-0">INFO 7375 Final Project — Northeastern University — Spring 2026</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
